@@ -1,0 +1,20 @@
+.header {
+  min-height: 80px;
+  color: #ffd65c;
+}
+
+.header__navigation {
+  display: flex;
+  column-gap: 20px;
+}
+
+.header__logo {
+}
+
+.header__link {
+  transition: all 0.3s ease;
+}
+
+.header__link:hover {
+  opacity: 0.7;
+}
