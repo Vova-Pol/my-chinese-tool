@@ -13,6 +13,10 @@ font-family: 'Nunito Sans', sans-serif;
 font-family: 'Ma Shan Zheng', cursive;
 */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #272932;
   color: #e7ecef;
@@ -35,9 +39,36 @@ h1 {
   font-weight: 400;
   text-align: center;
   font-size: 42px;
+  margin-bottom: 60px;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+input,
+textarea {
+  border: none;
+  border-radius: 15px;
+  padding: 20px 15px;
+  background-color: #fed75b24;
+  border: 2px solid #ffd65cad;
+  color: #e7ecef;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border: 2px solid #ffd65c;
+}
+
+button {
+  width: 30%;
+  border: none;
+  background-color: #ffd65c;
+  color: #272932;
+  border-radius: 7px;
+  padding: 10px;
+  cursor: pointer;
 }
