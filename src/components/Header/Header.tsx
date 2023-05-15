@@ -19,7 +19,7 @@ export default function Header() {
         <Link to="/" className="header__link">
           Поиск
         </Link>
-        <Link to="/" className="header__link">
+        <Link to="/add-words" className="header__link">
           Добавить
         </Link>
       </nav>
