@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AddWords.css';
 import { useFormAndValidation } from '../hooks/useFormAndValidation';
+import { IFormValues, IWord } from '../models/models';
+import { createWordsData, isValidTextArea } from '../components/utils/utils';
 
 export default function AddWords() {
-  const { values, handleChange, setValues, errors, isValid, resetForm } =
-    useFormAndValidation({ words: '' });
+  const initialValues: IFormValues = {
+    words: '',
+  };
+  const [values, setValues] = useState(initialValues);
+  const [isValid, setIsValid] = useState(false);
+
+  const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = evt.target;
+    setValues({ ...values, [name]: value });
+    const {
+      isValidEnterAtTheEnd,
+      isValidMoreThanOneEnter,
+      isValidateMinLength,
+    } = isValidTextArea(evt.target.value);
+    setIsValid(
+      isValidEnterAtTheEnd && isValidMoreThanOneEnter && isValidateMinLength,
+    );
+  };
 
   function handleSubmit(evt: React.MouseEvent<HTMLButtonElement>) {
     evt.preventDefault();
-    resetForm();
-
-    console.log(values);
+    const wordsArray = createWordsData(values.words.trim());
+    setValues(initialValues);
+    setIsValid(true);
+    console.log(wordsArray);
   }
 
   return (
@@ -31,6 +50,7 @@ export default function AddWords() {
           type="submit"
           className="add-words__button"
           onClick={handleSubmit}
+          disabled={isValid ? false : true}
         >
           Добавить
         </button>
