@@ -1,42 +1,28 @@
 import React, { useState } from 'react';
 import './AddWords.css';
-import { useFormAndValidation } from '../hooks/useFormAndValidation';
 import { IFormValues, IWord } from '../models/models';
-import { createWordsData, isValidTextArea } from '../utils/utils';
+import { createWordsData } from '../utils/utils';
 import { useActions } from '../hooks/actions';
 import { useAppSelector } from '../hooks/redux';
+import { useTextareaValidation } from '../hooks/useTextareaValidation';
 
 export default function AddWords() {
   const initialValues: IFormValues = {
     words: '',
   };
-  const [values, setValues] = useState(initialValues);
-  const [isValid, setIsValid] = useState(false);
+  const { values, isValid, error, handleChange, resetForm } =
+    useTextareaValidation(initialValues);
 
   const { addNewWordsList } = useActions();
   const { progress } = useAppSelector((state) => state);
   console.log(progress);
-
-  const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { name, value } = evt.target;
-    setValues({ ...values, [name]: value });
-    const {
-      isValidEnterAtTheEnd,
-      isValidMoreThanOneEnter,
-      isValidateMinLength,
-    } = isValidTextArea(evt.target.value);
-    setIsValid(
-      isValidEnterAtTheEnd && isValidMoreThanOneEnter && isValidateMinLength,
-    );
-  };
 
   function handleSubmit(evt: React.MouseEvent<HTMLButtonElement>) {
     evt.preventDefault();
     try {
       const wordsArray = createWordsData(values.words.trim());
       addNewWordsList(wordsArray);
-      setValues(initialValues);
-      setIsValid(true);
+      resetForm();
     } catch (err) {
       console.log(`Ошибка! Что-то пошло не так при сабмите формы: ${err}`);
     }
