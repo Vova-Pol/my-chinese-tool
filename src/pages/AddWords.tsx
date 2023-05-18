@@ -42,6 +42,7 @@ export default function AddWords() {
           onChange={handleChange}
           value={values.words}
         ></textarea>
+        <span className="add-words__error">{error}</span>
         <button
           type="submit"
           className="add-words__button"
