@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './AddWords.css';
 import { useFormAndValidation } from '../hooks/useFormAndValidation';
 import { IFormValues, IWord } from '../models/models';
-import { createWordsData, isValidTextArea } from '../components/utils/utils';
+import { createWordsData, isValidTextArea } from '../utils/utils';
+import { useActions } from '../hooks/actions';
+import { useAppSelector } from '../hooks/redux';
 
 export default function AddWords() {
   const initialValues: IFormValues = {
@@ -10,6 +12,10 @@ export default function AddWords() {
   };
   const [values, setValues] = useState(initialValues);
   const [isValid, setIsValid] = useState(false);
+
+  const { addNewWordsList } = useActions();
+  const { progress } = useAppSelector((state) => state);
+  console.log(progress);
 
   const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = evt.target;
@@ -26,10 +32,14 @@ export default function AddWords() {
 
   function handleSubmit(evt: React.MouseEvent<HTMLButtonElement>) {
     evt.preventDefault();
-    const wordsArray = createWordsData(values.words.trim());
-    setValues(initialValues);
-    setIsValid(true);
-    console.log(wordsArray);
+    try {
+      const wordsArray = createWordsData(values.words.trim());
+      addNewWordsList(wordsArray);
+      setValues(initialValues);
+      setIsValid(true);
+    } catch (err) {
+      console.log(`Ошибка! Что-то пошло не так при сабмите формы: ${err}`);
+    }
   }
 
   return (

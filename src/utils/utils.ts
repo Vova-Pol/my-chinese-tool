@@ -1,4 +1,4 @@
-import { IWord } from '../../models/models';
+import { IWord } from '../models/models';
 import { enterAtTheEndRegexp, moreThanOneEntersRegexp } from './constants';
 
 export function createWordsData(wordsString: string): IWord[] {
@@ -8,7 +8,6 @@ export function createWordsData(wordsString: string): IWord[] {
       character: dataArr[0],
       pinyin: dataArr[1],
       translation: dataArr[2],
-      usage: dataArr[3],
     };
   });
 }
