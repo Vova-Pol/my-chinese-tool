@@ -1,0 +1,25 @@
+.progress {
+  max-width: 1200px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.progress__info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.progress__graphics {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #ffd65c;
+  border-radius: 8px;
+}
+
+.progress__done {
+  height: 100%;
+  background: linear-gradient(to right, #052627, #0f7173);
+  border-radius: 8px;
+  max-width: 100%;
+}

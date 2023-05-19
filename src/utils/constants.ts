@@ -10,3 +10,5 @@ export const LINE_BREAK_AT_THE_END_ERROR_TEXT =
 export const MORE_THAN_ONE_LINE_BREAK_ERROR_TEXT =
   'В списке есть лишний перенос строки';
 export const MIN_LENGTH_ERROR_TEXT = `Минимальная длина списка - ${TEXTAREA_MIN_LENGTH} символов`;
+
+export const AIM_AMOUNT = 100;
