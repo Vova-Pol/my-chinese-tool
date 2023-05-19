@@ -9,3 +9,8 @@ export interface IFormValues {
 }
 
 export type wordsListType = IWord[];
+
+export interface ISearchedWord {
+  character: string;
+  frequency: number;
+}

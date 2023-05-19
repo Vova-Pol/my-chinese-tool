@@ -16,7 +16,7 @@ export default function Header() {
         <Link to="/" className="header__link">
           Видео
         </Link>
-        <Link to="/" className="header__link">
+        <Link to="/search" className="header__link">
           Поиск
         </Link>
         <Link to="/add-words" className="header__link">
