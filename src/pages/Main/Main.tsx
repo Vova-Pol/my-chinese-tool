@@ -1,6 +1,6 @@
 import React from 'react';
 import './Main.css';
-import Progress from '../components/Progress/Progress';
+import Progress from '../../components/Progress/Progress';
 
 export default function Main() {
   return (

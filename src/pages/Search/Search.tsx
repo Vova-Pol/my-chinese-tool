@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Search.css';
-import { useFormAndValidation } from '../hooks/useFormAndValidation';
-import { characters10_000 } from '../data/characters10_000';
-import { ISearchedWord } from '../models/models';
-import { BKRS_SEARCH_URL } from '../utils/constants';
+import { useFormAndValidation } from '../../hooks/useFormAndValidation';
+import { characters10_000 } from '../../data/characters10_000';
+import { ISearchedWord } from '../../models/models';
+import { BKRS_SEARCH_URL } from '../../utils/constants';
 
 export default function Search() {
   const [resultList, setResultList] = useState<ISearchedWord[]>([]);

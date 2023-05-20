@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './AddWords.css';
-import { createWordsData } from '../utils/utils';
-import { useActions } from '../hooks/actions';
-import { useAppSelector } from '../hooks/redux';
-import { useTextareaValidation } from '../hooks/useTextareaValidation';
+import { createWordsData } from '../../utils/utils';
+import { useActions } from '../../hooks/actions';
+import { useAppSelector } from '../../hooks/redux';
+import { useTextareaValidation } from '../../hooks/useTextareaValidation';
 
 export default function AddWords() {
   const initialValues = {

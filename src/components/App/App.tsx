@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import Header from '../Header/Header';
 import { Routes, Route } from 'react-router-dom';
-import Main from '../../pages/Main';
-import AddWords from '../../pages/AddWords';
-import Search from '../../pages/Search';
+import Main from '../../pages/Main/Main';
+import AddWords from '../../pages/AddWords/AddWords';
+import Search from '../../pages/Search/Search';
 
 function App() {
   return (
