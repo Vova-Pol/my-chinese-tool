@@ -4,10 +4,11 @@ import { AIM_AMOUNT } from '../../utils/constants';
 import { useAppSelector } from '../../hooks/redux';
 
 export default function Progress() {
-  const { progress } = useAppSelector((state) => state);
+  const { wordsChunks } = useAppSelector((state) => state.progress);
+  console.log(wordsChunks);
 
-  const totalProgress = progress.wordsChunks.reduce((acc, wordsArr) => {
-    return acc + wordsArr.length;
+  const totalProgress = wordsChunks.reduce((acc, chunk) => {
+    return acc + chunk.wordsList.length;
   }, 0);
 
   const totalProgressPercentage = (totalProgress / AIM_AMOUNT) * 100;

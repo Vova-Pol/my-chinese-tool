@@ -2,9 +2,13 @@ export interface IWord {
   character: string;
   pinyin: string;
   translation: string;
+  id: string;
 }
 
-export type wordsListType = IWord[];
+export interface IChunk {
+  wordsList: IWord[];
+  id: string;
+}
 
 export interface ISearchedWord {
   character: string;

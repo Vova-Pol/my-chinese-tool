@@ -11,14 +11,14 @@ export default function Chunks() {
       <ul className="chunks__list">
         {wordsChunks.map((chunk, i) => (
           <li className="chunks__item" key={i}>
-            {chunk.slice(0, 3).map((word, i) => (
+            {chunk.wordsList.slice(0, 3).map((word, i) => (
               <div className="chunks__word-container" key={i}>
                 <span className="chunks__character">{word.character}</span>
                 <span className="chunks__pinyin">{word.pinyin}</span>
               </div>
             ))}
             <span className="chunks__words-amount">
-              Всего слов: {chunk.length}
+              Всего слов: {chunk.wordsList.length}
             </span>
           </li>
         ))}
