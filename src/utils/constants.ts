@@ -12,3 +12,5 @@ export const MORE_THAN_ONE_LINE_BREAK_ERROR_TEXT =
 export const MIN_LENGTH_ERROR_TEXT = `Минимальная длина списка - ${TEXTAREA_MIN_LENGTH} символов`;
 
 export const AIM_AMOUNT = 100;
+
+export const BKRS_SEARCH_URL = 'https://bkrs.info/slovo.php?ch=';

@@ -4,10 +4,6 @@ export interface IWord {
   translation: string;
 }
 
-export interface IFormValues {
-  words: string;
-}
-
 export type wordsListType = IWord[];
 
 export interface ISearchedWord {

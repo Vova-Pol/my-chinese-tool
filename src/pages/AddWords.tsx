@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import './AddWords.css';
-import { IFormValues, IWord } from '../models/models';
 import { createWordsData } from '../utils/utils';
 import { useActions } from '../hooks/actions';
 import { useAppSelector } from '../hooks/redux';
 import { useTextareaValidation } from '../hooks/useTextareaValidation';
 
 export default function AddWords() {
-  const initialValues: IFormValues = {
+  const initialValues = {
     words: '',
   };
   const { values, isValid, error, handleChange, resetForm } =

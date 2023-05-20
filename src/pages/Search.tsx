@@ -4,9 +4,9 @@ import './Search.css';
 import { useFormAndValidation } from '../hooks/useFormAndValidation';
 import { characters10_000 } from '../data/characters10_000';
 import { ISearchedWord } from '../models/models';
+import { BKRS_SEARCH_URL } from '../utils/constants';
 
 export default function Search() {
-  const bkrs_search_url = 'https://bkrs.info/slovo.php?ch=';
   const [resultList, setResultList] = useState<ISearchedWord[]>([]);
   const [isNothingFound, setIsNothingFound] = useState(true);
 
@@ -28,15 +28,10 @@ export default function Search() {
       };
     });
 
-    console.log(resultArr);
-    console.log(resultArr.length);
-
     if (!resultArr.length) {
       setIsNothingFound(true);
       setResultList([]);
-      console.log('Nothing');
     } else {
-      console.log('Found!');
       setIsNothingFound(false);
       setResultList(resultArr);
     }
@@ -83,7 +78,7 @@ export default function Search() {
               <li key={i} className="search__result-item">
                 <Link
                   className="search__result-link"
-                  to={bkrs_search_url + char.character}
+                  to={BKRS_SEARCH_URL + char.character}
                   target="_blank"
                 >
                   {char!.character}

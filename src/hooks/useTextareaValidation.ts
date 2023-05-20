@@ -7,9 +7,8 @@ import {
   MORE_THAN_ONE_LINE_BREAK_REGEX,
   TEXTAREA_MIN_LENGTH,
 } from '../utils/constants';
-import { IFormValues } from '../models/models';
 
-export const useTextareaValidation = (initialValues: IFormValues) => {
+export const useTextareaValidation = (initialValues: any) => {
   const [values, setValues] = useState(initialValues);
   const [isValid, setIsValid] = useState(false);
   const [error, setError] = useState('');
