@@ -20,6 +20,7 @@ export default function Chunks() {
             <span className="chunks__words-amount">
               Всего слов: {chunk.wordsList.length}
             </span>
+            <div className="chunks__order">{i + 1}</div>
           </li>
         ))}
       </ul>

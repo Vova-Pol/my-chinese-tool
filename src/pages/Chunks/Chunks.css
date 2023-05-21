@@ -15,6 +15,7 @@
   min-width: 200px;
   transition: all 0.5s ease;
   cursor: pointer;
+  position: relative;
 }
 
 .chunks__item:hover {
@@ -47,4 +48,18 @@
   border-radius: 6px;
   padding: 5px;
   font-size: 14px;
+}
+
+.chunks__order {
+  background-color: #fed75b;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: #272932;
+  text-align: center;
+  line-height: 25px;
+  font-weight: 500;
 }
