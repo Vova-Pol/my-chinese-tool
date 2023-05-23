@@ -14,3 +14,7 @@ export const MIN_LENGTH_ERROR_TEXT = `Минимальная длина спис
 export const AIM_AMOUNT = 100;
 
 export const BKRS_SEARCH_URL = 'https://bkrs.info/slovo.php?ch=';
+
+export const LEFT_ARROW_KEY_CODE = 37;
+export const RIGHT_ARROW_KEY_CODE = 39;
+export const SPACE_KEY_CODE = 32;

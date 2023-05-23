@@ -1,0 +1,28 @@
+.flashcards__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.flashcards__item {
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffd65c;
+  color: #272932;
+  padding: 10px;
+  border-radius: 8px;
+  min-height: 200px;
+}
+
+.flashcards__item-character {
+  font-size: 35px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.flashcards__item-pinyin {
+  margin-bottom: 10px;
+}

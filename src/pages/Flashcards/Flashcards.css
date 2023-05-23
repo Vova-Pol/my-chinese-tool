@@ -1,0 +1,9 @@
+.flashcards {
+}
+
+.flashcards__show-list-button {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: fit-content;
+  padding: 10px 20px;
+}

@@ -1,0 +1,39 @@
+.flashcards-slider {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.flashcards-slider__arrow-button {
+  max-width: 50px;
+  max-height: 50px;
+  background-color: #fe8c5b;
+}
+
+.flashcards-slider__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  background-color: #ffd65c;
+  color: #272932;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.flashcards-slider__chatacter {
+  font-size: 60px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.flashcards-slider__pinyin {
+  margin-bottom: 5px;
+}
+
+.flashcards-slider__translation {
+  text-align: center;
+}
