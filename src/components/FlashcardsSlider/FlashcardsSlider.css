@@ -4,6 +4,7 @@
   margin-bottom: 50px;
   align-items: center;
   column-gap: 30px;
+  min-height: 260px;
 }
 
 .flashcards-slider__arrow-button {
@@ -17,7 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 300px;
+  width: 300px;
   background-color: #ffd65c;
   color: #272932;
   border-radius: 10px;

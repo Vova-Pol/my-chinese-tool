@@ -23,20 +23,24 @@ export default function FlashcardsSlider(props: { wordsList: IWord[] }) {
   }, []);
 
   function handleKeyDown(evt: KeyboardEvent) {
+    const nextCard = wordsList[wordsList.indexOf(shownCardRef.current) + 1];
+    const prevCard = wordsList[wordsList.indexOf(shownCardRef.current) - 1];
+    const firstCard = wordsList[0];
+    const lastCard = wordsList[wordsList.length - 1];
+
+    const isFirstCard = shownCardRef.current === firstCard;
+    const isLastCard = shownCardRef.current === lastCard;
+
     switch (evt.keyCode) {
       case RIGHT_ARROW_KEY_CODE:
+      case SPACE_KEY_CODE:
         evt.preventDefault();
-        setShownCard(wordsList[wordsList.indexOf(shownCardRef.current) + 1]);
+        setShownCard(isLastCard ? firstCard : nextCard);
         break;
 
       case LEFT_ARROW_KEY_CODE:
         evt.preventDefault();
-        setShownCard(wordsList[wordsList.indexOf(shownCardRef.current) - 1]);
-        break;
-
-      case SPACE_KEY_CODE:
-        evt.preventDefault();
-        setShownCard(wordsList[wordsList.indexOf(shownCardRef.current) + 1]);
+        setShownCard(isFirstCard ? lastCard : prevCard);
         break;
     }
   }
@@ -53,9 +57,7 @@ export default function FlashcardsSlider(props: { wordsList: IWord[] }) {
     shownCardRef.current = card;
     _setShownCard(card);
   }
-  console.log('rendered');
-  console.log({ shownCard: shownCard.character });
-  console.log({ ref: shownCardRef.current.character });
+
   return (
     <div className="flashcards-slider">
       <button
