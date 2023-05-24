@@ -13,6 +13,11 @@ export default function FlashcardsSlider(props: { wordsList: IWord[] }) {
   const [shownCard, _setShownCard] = useState(wordsList[0]);
   const shownCardRef = useRef(shownCard);
 
+  function setShownCard(card: IWord) {
+    shownCardRef.current = card;
+    _setShownCard(card);
+  }
+
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     _setShownCard(wordsList[0]);
@@ -46,16 +51,19 @@ export default function FlashcardsSlider(props: { wordsList: IWord[] }) {
   }
 
   function handleRightClick(evt: React.MouseEvent<HTMLElement>) {
-    setShownCard(wordsList[wordsList.indexOf(shownCard) + 1]);
+    const isLastCard = shownCard === wordsList[wordsList.length - 1];
+    const nextCard = wordsList[wordsList.indexOf(shownCard) + 1];
+    const firstCard = wordsList[0];
+
+    setShownCard(isLastCard ? firstCard : nextCard);
   }
 
   function handleLeftClick(evt: React.MouseEvent<HTMLElement>) {
-    setShownCard(wordsList[wordsList.indexOf(shownCard) - 1]);
-  }
+    const prevCard = wordsList[wordsList.indexOf(shownCard) - 1];
+    const isFirstCard = shownCard === wordsList[0];
+    const lastCard = wordsList[wordsList.length - 1];
 
-  function setShownCard(card: IWord) {
-    shownCardRef.current = card;
-    _setShownCard(card);
+    setShownCard(isFirstCard ? lastCard : prevCard);
   }
 
   return (
