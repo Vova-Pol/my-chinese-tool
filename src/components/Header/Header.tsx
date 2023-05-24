@@ -13,7 +13,7 @@ export default function Header() {
         <Link to="/chunks" className="header__link">
           Карточки
         </Link>
-        <Link to="/" className="header__link">
+        <Link to="/video" className="header__link">
           Видео
         </Link>
         <Link to="/search" className="header__link">
