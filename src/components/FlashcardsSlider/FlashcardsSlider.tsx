@@ -7,9 +7,15 @@ import {
   SPACE_KEY_CODE,
 } from '../../utils/constants';
 
-export default function FlashcardsSlider(props: { wordsList: IWord[] }) {
-  const { wordsList } = props;
+interface IFlashcardsSliderProps {
+  wordsList: IWord[];
+  isQuizMode: boolean;
+}
 
+const FlashcardsSlider: React.FC<IFlashcardsSliderProps> = ({
+  wordsList,
+  isQuizMode,
+}) => {
   const [shownCard, _setShownCard] = useState(wordsList[0]);
   const shownCardRef = useRef(shownCard);
 
@@ -74,15 +80,33 @@ export default function FlashcardsSlider(props: { wordsList: IWord[] }) {
       >
         &#8592;
       </button>
+
       <div className="flashcards-slider__card">
         <span className="flashcards-slider__chatacter">
           {shownCard.character}
         </span>
-        <span className="flashcards-slider__pinyin">{shownCard.pinyin}</span>
-        <span className="flashcards-slider__translation">
+
+        <span
+          className={
+            isQuizMode
+              ? 'flashcards-slider__pinyin blur'
+              : 'flashcards-slider__pinyin'
+          }
+        >
+          {shownCard.pinyin}
+        </span>
+
+        <span
+          className={
+            isQuizMode
+              ? 'flashcards-slider__translation blur'
+              : 'flashcards-slider__translation'
+          }
+        >
           {shownCard.translation}
         </span>
       </div>
+
       <button
         className="flashcards-slider__arrow-button"
         onClick={handleRightClick}
@@ -91,4 +115,6 @@ export default function FlashcardsSlider(props: { wordsList: IWord[] }) {
       </button>
     </div>
   );
-}
+};
+
+export default FlashcardsSlider;

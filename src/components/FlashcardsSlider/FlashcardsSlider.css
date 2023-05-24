@@ -38,3 +38,7 @@
 .flashcards-slider__translation {
   text-align: center;
 }
+
+.blur {
+  filter: blur(3px);
+}

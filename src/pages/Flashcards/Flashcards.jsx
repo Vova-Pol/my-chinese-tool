@@ -14,20 +14,43 @@ export default function Flashcards() {
   );
 
   const [isFullListShown, setIsFullListShown] = useState(false);
+  const [isQuizMode, setIsQuizMode] = useState(false);
+
+  function handleShowFullList() {
+    setIsFullListShown(!isFullListShown);
+  }
+
+  function handleQuizMode() {
+    setIsQuizMode(!isQuizMode);
+  }
 
   console.log(wordsList);
   return (
     <div className="flashcards">
       <h1 className="flashcards__title">Карточки</h1>
-      <FlashcardsSlider wordsList={wordsList} />
+
+      <FlashcardsSlider wordsList={wordsList} isQuizMode={isQuizMode} />
+
+      <div className="flashcards__quiz-mode-container">
+        <label className="flashcards__quiz-mode" htmlFor="quiz-mode">
+          Режим диктанта
+        </label>
+        <input
+          className="flashcards__quiz-mode-input"
+          type="checkbox"
+          id="quiz-mode"
+          onClick={handleQuizMode}
+          checked={isQuizMode}
+        ></input>
+      </div>
+
       <button
         className="flashcards__show-list-button"
-        onClick={() => {
-          setIsFullListShown(!isFullListShown);
-        }}
+        onClick={handleShowFullList}
       >
         {!isFullListShown ? 'Показать весь список' : 'Скрыть список'}
       </button>
+
       {isFullListShown && <FullFlashcardsList wordsList={wordsList} />}
     </div>
   );
