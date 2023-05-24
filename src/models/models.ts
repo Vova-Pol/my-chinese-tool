@@ -2,12 +2,12 @@ export interface IWord {
   character: string;
   pinyin: string;
   translation: string;
-  id: string;
+  id: number;
 }
 
 export interface IChunk {
   wordsList: IWord[];
-  id: string;
+  id: number;
 }
 
 export interface ISearchedWord {

@@ -16,22 +16,15 @@ export function createWordsData(wordsString: string): IChunk {
       character: wordData[0],
       pinyin: wordData[1],
       translation: wordData[2],
-      id: setWordId(),
+      id: Date.now(),
     };
   });
-  return { wordsList, id: setChunkId() };
+  return { wordsList, id: Date.now() };
 }
 
-let lastWordId = 0;
+// Преобразовать время из string в number (кол-во секунд). "1:41" -> 101
 
-function setWordId() {
-  lastWordId++;
-  return `id${lastWordId}`;
-}
-
-let lastChunkId = 0;
-
-function setChunkId() {
-  lastChunkId++;
-  return `id${lastChunkId}`;
+export function convertTime(timeStr: string): number {
+  const timeArr = timeStr.split(':');
+  return Number(timeArr[0]) * 60 + Number(timeArr[1]);
 }
