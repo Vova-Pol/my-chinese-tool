@@ -26,7 +26,7 @@ export default function Flashcards() {
           setIsFullListShown(!isFullListShown);
         }}
       >
-        Показать весь список
+        {!isFullListShown ? 'Показать весь список' : 'Скрыть список'}
       </button>
       {isFullListShown && <FullFlashcardsList wordsList={wordsList} />}
     </div>

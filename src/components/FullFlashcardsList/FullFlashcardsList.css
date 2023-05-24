@@ -1,20 +1,19 @@
 .flashcards__list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   row-gap: 20px;
-  column-gap: 20px;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .flashcards__item {
-  max-width: 200px;
   display: flex;
-  flex-direction: column;
+  align-items: baseline;
   background-color: #ffd65c;
   color: #272932;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 8px;
-  min-height: 200px;
+  column-gap: 20px;
 }
 
 .flashcards__item-character {
@@ -25,4 +24,6 @@
 
 .flashcards__item-pinyin {
   margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 400;
 }
