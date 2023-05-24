@@ -8,7 +8,7 @@ import { IChunk, IWord } from '../models/models';
 
 export function createWordsData(wordsString: string): IChunk {
   const stringsArray = wordsString.split('\n');
-  const wordsList = stringsArray.map((str) => {
+  const wordsList = stringsArray.map((str, i) => {
     // преобразуем каждую строку 我/wo/я в массив ['我', 'wo', 'я']
     const wordData = str.split('/');
     // возвращаем объект
@@ -16,7 +16,7 @@ export function createWordsData(wordsString: string): IChunk {
       character: wordData[0],
       pinyin: wordData[1],
       translation: wordData[2],
-      id: Date.now(),
+      id: Date.now() + i,
     };
   });
   return { wordsList, id: Date.now() };
