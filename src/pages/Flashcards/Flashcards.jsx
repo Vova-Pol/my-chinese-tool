@@ -10,7 +10,7 @@ export default function Flashcards() {
 
   const { wordsChunks } = useAppSelector((state) => state.progress);
   const [wordsList, setWordsList] = useState(
-    wordsChunks.find((chunk) => chunk.id === id).wordsList,
+    wordsChunks.find((chunk) => chunk.id === Number(id)).wordsList,
   );
 
   const [isFullListShown, setIsFullListShown] = useState(false);
