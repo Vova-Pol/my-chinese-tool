@@ -10,7 +10,8 @@
 .flashcards-slider__arrow-button {
   max-width: 50px;
   max-height: 50px;
-  background-color: #fe8c5b;
+  background-color: #d94730;
+  color: #e7ecef;
 }
 
 .flashcards-slider__card {

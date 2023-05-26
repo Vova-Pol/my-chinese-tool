@@ -14,6 +14,7 @@
   padding: 10px 20px;
   border-radius: 8px;
   column-gap: 20px;
+  position: relative;
 }
 
 .flashcards__item-character {
@@ -26,4 +27,38 @@
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: 400;
+}
+
+.flashcards__button-container {
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  display: flex;
+}
+
+.flashcards__button {
+  background-color: #d94730;
+  margin-right: 10px;
+  background-position: center;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.flashcards__button:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.flashcards__search-button {
+  background-image: url('../../images/search-icon.png');
+}
+
+.flashcards__bkrs-button {
+  background-image: url('../../images/bkrs-icon.png');
+}
+
+.flashcards__edit-button {
+  background-image: url('../../images/edit-icon.png');
 }
