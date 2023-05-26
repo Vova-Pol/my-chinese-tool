@@ -18,6 +18,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/add-words" element={<AddWords />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/search/:character" element={<Search />} />
           <Route path="/chunks" element={<Chunks />} />
           <Route path="/chunks/:id" element={<Flashcards />} />
           <Route path="/video" element={<Video />} />

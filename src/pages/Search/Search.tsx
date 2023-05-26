@@ -1,23 +1,34 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import './Search.css';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { characters10_000 } from '../../data/characters10_000';
 import { ISearchedWord } from '../../models/models';
 import { BKRS_SEARCH_URL } from '../../utils/constants';
 
-export default function Search() {
+const Search: React.FC = () => {
   const [resultList, setResultList] = useState<ISearchedWord[]>([]);
   const [isNothingFound, setIsNothingFound] = useState(true);
 
   const { values, handleChange, setValues, errors, isValid, resetForm } =
     useFormAndValidation({ search: '' });
 
-  function handleSubmit(evt: React.FormEvent<HTMLFormElement>) {
-    evt.preventDefault();
+  const { character } = useParams();
 
-    const filteredArr: string[] = characters10_000.filter((char) =>
-      char.includes(values.search),
+  useEffect(() => {
+    if (character) {
+      setValues({ ...values, search: character });
+      searchCharacter(character);
+    } else {
+      resetForm();
+      setIsNothingFound(true);
+      setResultList([]);
+    }
+  }, [character]);
+
+  function searchCharacter(searchedChar: string) {
+    const filteredArr = characters10_000.filter((char) =>
+      char.includes(searchedChar),
     );
 
     const resultArr: ISearchedWord[] = filteredArr.map((character) => {
@@ -35,6 +46,11 @@ export default function Search() {
       setIsNothingFound(false);
       setResultList(resultArr);
     }
+  }
+
+  function handleSubmit(evt: React.FormEvent<HTMLFormElement>) {
+    evt.preventDefault();
+    searchCharacter(values.search);
   }
 
   // Отображение надописи "Найдено 25 иероглифов" требует написания
@@ -91,4 +107,6 @@ export default function Search() {
       )}
     </div>
   );
-}
+};
+
+export default Search;
