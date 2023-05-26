@@ -15,25 +15,25 @@ const Flashcard: React.FC<IWord> = ({ character, id, pinyin, translation }) => {
   };
 
   return (
-    <li className="flashcards__item">
-      <span className="flashcards__item-character">{character}</span>
-      <span className="flashcards__item-pinyin">{pinyin}</span>
-      <span className="flashcards__item-translation">{translation}</span>
-      <div className="flashcards__button-container">
+    <li className="flashcards-list__item">
+      <span className="flashcards-list__item-character">{character}</span>
+      <span className="flashcards-list__item-pinyin">{pinyin}</span>
+      <span className="flashcards-list__item-translation">{translation}</span>
+      <div className="flashcards-list__button-container">
         <Link
           to={BKRS_SEARCH_URL + character}
           target="_blank"
           type="button"
-          className="flashcards__bkrs-button flashcards__button"
+          className="flashcards-list__bkrs-button flashcards-list__button"
         ></Link>
         <button
           onClick={handleOnSearch}
           type="button"
-          className="flashcards__search-button flashcards__button"
+          className="flashcards-list__search-button flashcards-list__button"
         ></button>
         <button
           type="button"
-          className="flashcards__edit-button flashcards__button"
+          className="flashcards-list__edit-button flashcards-list__button"
         ></button>
       </div>
     </li>

@@ -11,7 +11,7 @@ const FullFlashcardsList: React.FC<IFullFlashcardsListProps> = ({
   wordsList,
 }) => {
   return (
-    <ul className="flashcards__list">
+    <ul className="flashcards-list">
       {wordsList.map((word) => (
         <Flashcard key={word.id} {...word} />
       ))}
