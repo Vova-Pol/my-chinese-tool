@@ -40,7 +40,6 @@ export default function Flashcards() {
           type="checkbox"
           id="quiz-mode"
           onClick={handleQuizMode}
-          checked={isQuizMode}
         ></input>
       </div>
 
