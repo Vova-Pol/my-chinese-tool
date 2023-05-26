@@ -1,9 +1,17 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { IWord } from '../../models/models';
 import './FullFlashcardsList.css';
+import { BKRS_SEARCH_URL } from '../../utils/constants';
 
-export default function FullFlashcardsList(props: { wordsList: IWord[] }) {
-  const { wordsList } = props;
+interface IFullFlashcardsListProps {
+  wordsList: IWord[];
+}
+
+const FullFlashcardsList: React.FC<IFullFlashcardsListProps> = ({
+  wordsList,
+}) => {
+  const navigate = useNavigate();
 
   return (
     <ul className="flashcards__list">
@@ -15,10 +23,12 @@ export default function FullFlashcardsList(props: { wordsList: IWord[] }) {
             {word.translation}
           </span>
           <div className="flashcards__button-container">
-            <button
+            <Link
+              to={BKRS_SEARCH_URL + word.character}
+              target="_blank"
               type="button"
               className="flashcards__bkrs-button flashcards__button"
-            ></button>
+            ></Link>
             <button
               type="button"
               className="flashcards__search-button flashcards__button"
@@ -32,4 +42,6 @@ export default function FullFlashcardsList(props: { wordsList: IWord[] }) {
       ))}
     </ul>
   );
-}
+};
+
+export default FullFlashcardsList;
