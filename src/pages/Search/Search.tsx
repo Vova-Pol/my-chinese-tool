@@ -53,9 +53,6 @@ const Search: React.FC = () => {
     searchCharacter(values.search);
   }
 
-  // Отображение надописи "Найдено 25 иероглифов" требует написания
-  // функции-утилиты, которая будет подставлять нужное окончание
-
   return (
     <div className="search">
       <h1 className="search__title">Поиск по частотному словарю</h1>
@@ -64,7 +61,7 @@ const Search: React.FC = () => {
           className="search__input"
           name="search"
           type="text"
-          placeholder="&#128270; введите символ"
+          placeholder="&#128270;    введите символ"
           value={values.search}
           onChange={handleChange}
           required
@@ -75,36 +72,41 @@ const Search: React.FC = () => {
       </form>
       <div className="search__result-container">
         {!isNothingFound && (
-          <h2 className="search__result-character">
-            {resultList[0].character}
-          </h2>
+          <>
+            <h2 className="search__result-character">
+              {resultList[0].character}
+            </h2>
+            <ul className="search__result-list">
+              {resultList.map((char, i) => {
+                return (
+                  <li key={i} className="search__result-item">
+                    <Link
+                      className="search__result-link"
+                      to={BKRS_SEARCH_URL + char.character}
+                      target="_blank"
+                    >
+                      {char!.character}
+                    </Link>
+                    <span
+                      className="search__frequency"
+                      style={{
+                        color:
+                          char.frequency < 1000
+                            ? '#19a5a8'
+                            : char.frequency < 5000
+                            ? '#ffd65c'
+                            : '#d94730',
+                      }}
+                    >
+                      {char.frequency}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
         )}
-
-        {/* <span className="search__amount-text">
-          {resultList.length +
-            ' иероглиф' +
-            (String(resultList.length).endsWith('1') ? '' : 'ов') +
-            ' найдено!'}
-        </span> */}
       </div>
-      {!isNothingFound && (
-        <ul className="search__result-list">
-          {resultList.map((char, i) => {
-            return (
-              <li key={i} className="search__result-item">
-                <Link
-                  className="search__result-link"
-                  to={BKRS_SEARCH_URL + char.character}
-                  target="_blank"
-                >
-                  {char!.character}
-                </Link>
-                <span className="search__frequency">{char.frequency}</span>
-              </li>
-            );
-          })}
-        </ul>
-      )}
     </div>
   );
 };
