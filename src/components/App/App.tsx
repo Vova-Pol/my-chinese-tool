@@ -8,6 +8,7 @@ import Search from '../../pages/Search/Search';
 import Chunks from '../../pages/Chunks/Chunks';
 import Flashcards from '../../pages/Flashcards/Flashcards';
 import Video from '../../pages/Video/Video';
+import { Scenario } from '../../pages/Scenario/Scenario';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/chunks" element={<Chunks />} />
           <Route path="/chunks/:id" element={<Flashcards />} />
           <Route path="/video" element={<Video />} />
+          <Route path="/scenario" element={<Scenario />} />
         </Routes>
       </main>
     </div>

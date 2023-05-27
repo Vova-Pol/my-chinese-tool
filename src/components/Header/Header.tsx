@@ -22,6 +22,9 @@ export default function Header() {
         <Link to="/add-words" className="header__link">
           Добавить
         </Link>
+        <Link to="/scenario" className="header__link">
+          Сценарий
+        </Link>
       </nav>
     </header>
   );

@@ -1,0 +1,27 @@
+.scenario {
+}
+
+.scenario__title {
+  margin-bottom: 20px;
+}
+
+.scenario__name {
+  text-align: center;
+  font-family: 'Ma Shan Zheng', sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.scenario__episode {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.scenario__paragraph {
+  margin-bottom: 15px;
+  line-height: 1.4em;
+  font-size: 20px;
+  font-weight: 100;
+}
