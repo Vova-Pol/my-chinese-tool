@@ -23,14 +23,13 @@ const Flashcard: React.FC<IWord> = ({ character, id, pinyin, translation }) => {
         <Link
           to={BKRS_SEARCH_URL + character}
           target="_blank"
-          type="button"
           className="flashcards-list__bkrs-button flashcards-list__button"
         ></Link>
-        <button
-          onClick={handleOnSearch}
-          type="button"
+        <Link
+          to={`/search/${character}`}
+          target="_blank"
           className="flashcards-list__search-button flashcards-list__button"
-        ></button>
+        ></Link>
         <button
           type="button"
           className="flashcards-list__edit-button flashcards-list__button"
