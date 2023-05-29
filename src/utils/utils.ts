@@ -1,4 +1,12 @@
 import { IChunk, IWord } from '../models/models';
+import {
+  LINE_BREAK_AT_THE_END_ERROR_TEXT,
+  LINE_BREAK_AT_THE_END_REGEX,
+  MIN_LENGTH_ERROR_TEXT,
+  MORE_THAN_ONE_LINE_BREAK_ERROR_TEXT,
+  MORE_THAN_ONE_LINE_BREAK_REGEX,
+  TEXTAREA_MIN_LENGTH,
+} from './constants';
 
 // Данные сабмитятся через форму в формате
 // 我/wo/я\n
@@ -27,4 +35,23 @@ export function createWordsData(wordsString: string): IChunk {
 export function convertTime(timeStr: string): number {
   const timeArr = timeStr.split(':');
   return Number(timeArr[0]) * 60 + Number(timeArr[1]);
+}
+
+// Валидация Textarea
+
+export function getTextAreaError(value: string) {
+  const isValidMinLength = value.length > TEXTAREA_MIN_LENGTH;
+  const isValidLineBreakAtTheEnd = !LINE_BREAK_AT_THE_END_REGEX.test(value);
+  const isValidMoreThanOneLineBreak =
+    !MORE_THAN_ONE_LINE_BREAK_REGEX.test(value);
+
+  const errorText = !isValidMinLength
+    ? MIN_LENGTH_ERROR_TEXT
+    : !isValidLineBreakAtTheEnd
+    ? LINE_BREAK_AT_THE_END_ERROR_TEXT
+    : !isValidMoreThanOneLineBreak
+    ? MORE_THAN_ONE_LINE_BREAK_ERROR_TEXT
+    : '';
+
+  return errorText;
 }

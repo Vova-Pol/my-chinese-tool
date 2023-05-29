@@ -3,28 +3,37 @@ import './AddWords.css';
 import { createWordsData } from '../../utils/utils';
 import { useActions } from '../../hooks/actions';
 import { useAppSelector } from '../../hooks/redux';
-import { useTextareaValidation } from '../../hooks/useTextareaValidation';
+import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 
 export default function AddWords() {
   const initialValues = {
     words: '',
+    startTime: '',
   };
-  const { values, isValid, error, handleChange, resetForm } =
-    useTextareaValidation(initialValues);
+
+  const {
+    values,
+    isInputValid,
+    isTextAreaValid,
+    errors,
+    handleInputChange,
+    handleTextAreaChange,
+    resetForm,
+  } = useFormAndValidation(initialValues);
 
   const { addNewWordsList } = useActions();
   const { progress } = useAppSelector((state) => state);
-  console.log(progress);
 
   function handleSubmit(evt: React.MouseEvent<HTMLButtonElement>) {
     evt.preventDefault();
-    try {
-      const wordsArray = createWordsData(values.words.trim());
-      addNewWordsList(wordsArray);
-      resetForm();
-    } catch (err) {
-      console.log(`Ошибка! Что-то пошло не так при сабмите формы: ${err}`);
-    }
+    // try {
+    //   const wordsArray = createWordsData(values.words.trim());
+    //   addNewWordsList(wordsArray);
+    //   resetForm();
+    // } catch (err) {
+    //   console.log(`Ошибка! Что-то пошло не так при сабмите формы: ${err}`);
+    // }
+    console.log(values);
   }
 
   return (
@@ -38,15 +47,28 @@ export default function AddWords() {
           name="words"
           className="add-words__input"
           required
-          onChange={handleChange}
+          onChange={handleTextAreaChange}
           value={values.words}
         ></textarea>
-        <span className="add-words__error">{error}</span>
+        <span className="add-words__error">{errors.words}</span>
+        <label className="add-words__label" htmlFor="words">
+          Вермя начала эпизода:
+        </label>
+        <input
+          type="text"
+          name="startTime"
+          value={values.startTime}
+          onChange={handleInputChange}
+          placeholder="1:41"
+          minLength={4}
+          maxLength={8}
+        ></input>
+        <span className="add-words__error">{errors.startTime}</span>
         <button
           type="submit"
           className="add-words__button"
           onClick={handleSubmit}
-          disabled={isValid ? false : true}
+          disabled={isInputValid && isTextAreaValid ? false : true}
         >
           Добавить
         </button>

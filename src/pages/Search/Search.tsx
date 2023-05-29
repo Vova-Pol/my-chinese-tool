@@ -10,8 +10,14 @@ const Search: React.FC = () => {
   const [resultList, setResultList] = useState<ISearchedWord[]>([]);
   const [isNothingFound, setIsNothingFound] = useState(true);
 
-  const { values, handleChange, setValues, errors, isValid, resetForm } =
-    useFormAndValidation({ search: '' });
+  const {
+    values,
+    handleInputChange,
+    setValues,
+    errors,
+    isInputValid,
+    resetForm,
+  } = useFormAndValidation({ search: '' });
 
   const { character } = useParams();
 
@@ -63,7 +69,7 @@ const Search: React.FC = () => {
           type="text"
           placeholder="&#128270;    введите символ"
           value={values.search}
-          onChange={handleChange}
+          onChange={handleInputChange}
           required
         ></input>
         <button type="submit" className="search__submit-button">
