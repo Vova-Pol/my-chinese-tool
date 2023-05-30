@@ -1,17 +1,11 @@
-.chunks {
-}
-
-.chunks__title {
-}
-
-.chunks__list {
+.chunks-list__list {
   display: flex;
   column-gap: 20px;
   flex-wrap: wrap;
   row-gap: 20px;
 }
 
-.chunks__item {
+.chunks-list__item {
   border: 1px solid #ffd65c;
   border-radius: 8px;
   padding: 10px 20px;
@@ -21,28 +15,28 @@
   position: relative;
 }
 
-.chunks__item:hover {
+.chunks-list__item:hover {
   filter: contrast(1.1);
   filter: drop-shadow(1px 5px 1px #15161a);
   transform: translateY(-3px);
 }
 
-.chunks__word-container {
+.chunks-list__word-container {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
 }
 
-.chunks__character {
+.chunks-list__character {
   font-size: 28px;
   margin-right: 5px;
 }
 
-.chunks__pinyin {
+.chunks-list__pinyin {
   font-weight: 200;
 }
 
-.chunks__words-amount {
+.chunks-list__words-amount {
   text-align: center;
   display: block;
   margin-top: 15px;
@@ -53,7 +47,7 @@
   font-size: 14px;
 }
 
-.chunks__order {
+.chunks-list__order {
   background-color: #fed75b;
   border-radius: 50%;
   width: 30px;

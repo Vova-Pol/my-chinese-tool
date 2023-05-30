@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import './Video.css';
 import { convertTime } from '../../utils/utils';
+import { ChunksList } from '../../components/ChunksList/ChunksList';
+import { IChunk } from '../../models/models';
 
 export default function Video() {
-  const [startTime, setStartTime] = useState(convertTime('1:41'));
+  const [startTime, setStartTime] = useState(convertTime('1:00'));
+  function handleChunkOnClick(chunk: IChunk) {
+    setStartTime(convertTime(chunk.startTime));
+  }
 
   return (
     <div className="video">
@@ -18,6 +23,7 @@ export default function Video() {
         frameBorder="0"
         className="video__iframe"
       ></iframe>
+      <ChunksList handleOnChunk={handleChunkOnClick} />
     </div>
   );
 }
