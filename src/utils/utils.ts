@@ -21,14 +21,14 @@ export function createWordData(wordsString: string): IWord[] {
 
     // создаем объект
     const wordData: IWord = {
-      character: wordPropertiesArr[0],
-      pinyin: wordPropertiesArr[1],
-      translation: wordPropertiesArr[2],
+      character: wordPropertiesArr[0].trim(),
+      pinyin: wordPropertiesArr[1].trim(),
+      translation: wordPropertiesArr[2].trim(),
       id: Date.now() + i,
     };
 
     // если есть последнее поле (необязательное) usage, добавляем
-    if (wordPropertiesArr[3]) wordData.usage = wordPropertiesArr[3];
+    if (wordPropertiesArr[3]) wordData.usage = wordPropertiesArr[3].trim();
 
     return wordData;
   });
@@ -36,7 +36,7 @@ export function createWordData(wordsString: string): IWord[] {
 }
 
 export function createChunkData(wordsList: IWord[], startTime: string): IChunk {
-  return { wordsList, startTime, id: Date.now() };
+  return { wordsList, startTime: startTime.trim(), id: Date.now() };
 }
 
 // Преобразовать время из string в number (кол-во секунд). "1:41" -> 101

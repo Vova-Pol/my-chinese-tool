@@ -27,14 +27,15 @@ export default function AddWords() {
   function handleSubmit(evt: React.MouseEvent<HTMLButtonElement>) {
     evt.preventDefault();
     try {
-      const wordsList = createWordData(values.words.trim());
-      const chunkData = createChunkData(wordsList, values.startTime.trim());
+      const wordsList = createWordData(values.words);
+      const chunkData = createChunkData(wordsList, values.startTime);
       addNewWordsList(chunkData);
       resetForm();
+      console.log({ values });
+      console.log({ chunkData });
     } catch (err) {
       console.log(`Ошибка! Что-то пошло не так при сабмите формы: ${err}`);
     }
-    console.log(values);
   }
 
   return (
