@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AddWords.css';
-import { createWordsData } from '../../utils/utils';
+import { createChunkData, createWordData } from '../../utils/utils';
 import { useActions } from '../../hooks/actions';
 import { useAppSelector } from '../../hooks/redux';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
@@ -26,13 +26,14 @@ export default function AddWords() {
 
   function handleSubmit(evt: React.MouseEvent<HTMLButtonElement>) {
     evt.preventDefault();
-    // try {
-    //   const wordsArray = createWordsData(values.words.trim());
-    //   addNewWordsList(wordsArray);
-    //   resetForm();
-    // } catch (err) {
-    //   console.log(`Ошибка! Что-то пошло не так при сабмите формы: ${err}`);
-    // }
+    try {
+      const wordsList = createWordData(values.words.trim());
+      const chunkData = createChunkData(wordsList, values.startTime.trim());
+      addNewWordsList(chunkData);
+      resetForm();
+    } catch (err) {
+      console.log(`Ошибка! Что-то пошло не так при сабмите формы: ${err}`);
+    }
     console.log(values);
   }
 

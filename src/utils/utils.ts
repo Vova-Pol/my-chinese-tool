@@ -11,23 +11,32 @@ import {
 // Данные сабмитятся через форму в формате
 // 我/wo/я\n
 // 你/ni/ты\n и т.д.
-// Функция преобразует строку в обект с массивом
-// объектов слов и айдишником
+// Функция преобразует строку в обект с массивом IWord[]
 
-export function createWordsData(wordsString: string): IChunk {
+export function createWordData(wordsString: string): IWord[] {
   const stringsArray = wordsString.split('\n');
   const wordsList = stringsArray.map((str, i) => {
-    // преобразуем каждую строку 我/wo/я в массив ['我', 'wo', 'я']
-    const wordData = str.split('/');
-    // возвращаем объект
-    return {
-      character: wordData[0],
-      pinyin: wordData[1],
-      translation: wordData[2],
+    // преобразуем каждую строку 我/wo/я/我在家 в массив ['我', 'wo', 'я', '我在家']
+    const wordPropertiesArr = str.split('/');
+
+    // создаем объект
+    const wordData: IWord = {
+      character: wordPropertiesArr[0],
+      pinyin: wordPropertiesArr[1],
+      translation: wordPropertiesArr[2],
       id: Date.now() + i,
     };
+
+    // если есть последнее поле (необязательное) usage, добавляем
+    if (wordPropertiesArr[3]) wordData.usage = wordPropertiesArr[3];
+
+    return wordData;
   });
-  return { wordsList, id: Date.now() };
+  return wordsList;
+}
+
+export function createChunkData(wordsList: IWord[], startTime: string): IChunk {
+  return { wordsList, startTime, id: Date.now() };
 }
 
 // Преобразовать время из string в number (кол-во секунд). "1:41" -> 101
