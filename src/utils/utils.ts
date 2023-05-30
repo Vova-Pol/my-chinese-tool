@@ -16,7 +16,7 @@ import {
 export function createWordData(wordsString: string): IWord[] {
   const stringsArray = wordsString.split('\n');
   const wordsList = stringsArray.map((str, i) => {
-    // преобразуем каждую строку 我/wo/я/我在家 в массив ['我', 'wo', 'я', '我在家']
+    // преобразуем каждую строку 我/wǒ/я/我在家 в массив ['我', 'wǒ', 'я', '我在家']
     const wordPropertiesArr = str.split('/');
 
     // создаем объект

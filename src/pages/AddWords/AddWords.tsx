@@ -51,6 +51,7 @@ export default function AddWords() {
           required
           onChange={handleTextAreaChange}
           value={values.words}
+          placeholder="我/wǒ/я, мой/我在家&#10;中国/zhōngguó/Китай; китайский/他在中国"
         ></textarea>
         <span className="add-words__error">{errors.words}</span>
         <label className="add-words__label" htmlFor="words">
