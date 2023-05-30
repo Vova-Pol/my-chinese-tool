@@ -1,5 +1,7 @@
 import { IChunk, IWord } from '../models/models';
 import {
+  LESS_THAN_TWO_SLASHES_ERROR_TEXT,
+  LESS_THAN_TWO_SLASHES_REGEX,
   LINE_BREAK_AT_THE_END_ERROR_TEXT,
   LINE_BREAK_AT_THE_END_REGEX,
   MIN_LENGTH_ERROR_TEXT,
@@ -8,10 +10,7 @@ import {
   TEXTAREA_MIN_LENGTH,
 } from './constants';
 
-// Данные сабмитятся через форму в формате
-// 我/wo/я\n
-// 你/ni/ты\n и т.д.
-// Функция преобразует строку в обект с массивом IWord[]
+// Функция преобразует строку в массив обектов IWord
 
 export function createWordData(wordsString: string): IWord[] {
   const stringsArray = wordsString.split('\n');
@@ -53,6 +52,9 @@ export function getTextAreaError(value: string) {
   const isValidLineBreakAtTheEnd = !LINE_BREAK_AT_THE_END_REGEX.test(value);
   const isValidMoreThanOneLineBreak =
     !MORE_THAN_ONE_LINE_BREAK_REGEX.test(value);
+  const isValidLessThanTwoSlashes = value
+    .split('\n')
+    .every((line) => LESS_THAN_TWO_SLASHES_REGEX.test(line));
 
   const errorText = !isValidMinLength
     ? MIN_LENGTH_ERROR_TEXT
@@ -60,6 +62,8 @@ export function getTextAreaError(value: string) {
     ? LINE_BREAK_AT_THE_END_ERROR_TEXT
     : !isValidMoreThanOneLineBreak
     ? MORE_THAN_ONE_LINE_BREAK_ERROR_TEXT
+    : !isValidLessThanTwoSlashes
+    ? LESS_THAN_TWO_SLASHES_ERROR_TEXT
     : '';
 
   return errorText;
