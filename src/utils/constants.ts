@@ -2,7 +2,8 @@ export const LS_PROGRESS_KEY = 'words-chunks';
 
 export const LINE_BREAK_AT_THE_END_REGEX = /\n$/;
 export const MORE_THAN_ONE_LINE_BREAK_REGEX = /\n{2,}/;
-export const LESS_THAN_TWO_SLASHES_REGEX = /^\w+(\/[\w\s\.\,\;\(\)]+){2,3}$/;
+// доработать регулярку по слэшам (на данный момент я сдаюсь)
+export const LESS_THAN_TWO_SLASHES_REGEX = /^[\w\W]+(\/[^\/]+){2,3}[^\/]*$/;
 export const TEXTAREA_MIN_LENGTH = 5;
 
 export const LINE_BREAK_AT_THE_END_ERROR_TEXT =
