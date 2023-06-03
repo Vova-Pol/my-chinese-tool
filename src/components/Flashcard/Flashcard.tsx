@@ -4,7 +4,13 @@ import { IWord } from '../../models/models';
 import { Link, useNavigate } from 'react-router-dom';
 import { BKRS_SEARCH_URL } from '../../utils/constants';
 
-const Flashcard: React.FC<IWord> = ({ character, id, pinyin, translation }) => {
+const Flashcard: React.FC<IWord> = ({
+  character,
+  id,
+  pinyin,
+  translation,
+  usage = null,
+}) => {
   const navigate = useNavigate();
 
   const handleOnSearch: React.MouseEventHandler<HTMLButtonElement> = (
@@ -19,6 +25,7 @@ const Flashcard: React.FC<IWord> = ({ character, id, pinyin, translation }) => {
       <span className="flashcards-list__item-character">{character}</span>
       <span className="flashcards-list__item-pinyin">{pinyin}</span>
       <span className="flashcards-list__item-translation">{translation}</span>
+      {usage && <span className="flashcards-list__item-usage">{usage}</span>}
       <div className="flashcards-list__button-container">
         <Link
           to={BKRS_SEARCH_URL + character}
