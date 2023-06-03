@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './Search.css';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
@@ -31,6 +31,13 @@ const Search: React.FC = () => {
       setResultList([]);
     }
   }, [character]);
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (!inputRef.current) return;
+    inputRef.current.focus();
+  }, []);
 
   function searchCharacter(searchedChar: string) {
     const filteredArr = characters10_000.filter((char) =>
@@ -67,6 +74,7 @@ const Search: React.FC = () => {
           className="search__input"
           name="search"
           type="text"
+          ref={inputRef}
           placeholder="&#128270;    введите символ"
           value={values.search}
           onChange={handleInputChange}

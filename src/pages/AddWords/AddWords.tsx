@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './AddWords.css';
 import { createChunkData, createWordData } from '../../utils/utils';
 import { useActions } from '../../hooks/actions';
@@ -23,6 +23,13 @@ export default function AddWords() {
 
   const { addNewWordsList } = useActions();
   const { progress } = useAppSelector((state) => state);
+
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  useEffect(() => {
+    if (!textareaRef.current) return;
+    textareaRef.current.focus();
+  }, []);
 
   function handleSubmit(evt: React.MouseEvent<HTMLButtonElement>) {
     evt.preventDefault();
@@ -49,6 +56,7 @@ export default function AddWords() {
           name="words"
           className="add-words__input"
           required
+          ref={textareaRef}
           onChange={handleTextAreaChange}
           value={values.words}
           placeholder="我/wǒ/я, мой/我在家&#10;中国/zhōngguó/Китай; китайский/他在中国"
