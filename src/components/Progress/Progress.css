@@ -1,7 +1,7 @@
 .progress {
   max-width: 1200px;
   width: 70%;
-  margin: 0 auto;
+  margin: 0 auto 90px auto;
 }
 
 .progress__info {
@@ -10,16 +10,19 @@
   margin-bottom: 10px;
 }
 
-.progress__graphics {
+.progress__done {
   width: 100%;
   height: 30px;
   border: 1px solid #ffd65c;
   border-radius: 8px;
+  background: linear-gradient(to right, #f44336, #cddc39, #8bc34a, #4caf50);
 }
 
-.progress__done {
+.progress__left {
   height: 100%;
-  background: linear-gradient(to right, #052627, #0f7173);
-  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   max-width: 100%;
+  background-color: #272932;
+  float: right;
 }
