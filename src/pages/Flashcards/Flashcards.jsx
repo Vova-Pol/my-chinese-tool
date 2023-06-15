@@ -14,32 +14,51 @@ export default function Flashcards() {
   );
 
   const [isFullListShown, setIsFullListShown] = useState(false);
-  const [isQuizMode, setIsQuizMode] = useState(false);
+  const [hideTranslation, setHideTranslation] = useState(false);
+  const [hidePinyin, setHidePinyin] = useState(false);
 
   function handleShowFullList() {
     setIsFullListShown(!isFullListShown);
   }
 
-  function handleQuizMode() {
-    setIsQuizMode(!isQuizMode);
+  function handleHideTranslation() {
+    setHideTranslation(!hideTranslation);
   }
 
-  console.log(wordsList);
+  function handleHidePinyin() {
+    setHidePinyin(!hidePinyin);
+  }
+
   return (
     <div className="flashcards">
       <h1 className="flashcards__title">Карточки</h1>
 
-      <FlashcardsSlider wordsList={wordsList} isQuizMode={isQuizMode} />
+      <FlashcardsSlider
+        wordsList={wordsList}
+        hidePinyin={hidePinyin}
+        hideTranslation={hideTranslation}
+      />
 
       <div className="flashcards__quiz-mode-container">
-        <label className="flashcards__quiz-mode" htmlFor="quiz-mode">
-          Режим диктанта
+        <label className="flashcards__quiz-mode" htmlFor="hide-translation">
+          Скрыть перевод
         </label>
         <input
           className="flashcards__quiz-mode-input"
           type="checkbox"
-          id="quiz-mode"
-          onClick={handleQuizMode}
+          id="hide-translation"
+          onClick={handleHideTranslation}
+        ></input>
+      </div>
+      <div className="flashcards__quiz-mode-container">
+        <label className="flashcards__quiz-mode" htmlFor="hide-pinyin">
+          Скрыть пиньинь
+        </label>
+        <input
+          className="flashcards__quiz-mode-input"
+          type="checkbox"
+          id="hide-pinyin"
+          onClick={handleHidePinyin}
         ></input>
       </div>
 

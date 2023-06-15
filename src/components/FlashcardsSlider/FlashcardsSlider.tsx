@@ -9,12 +9,14 @@ import {
 
 interface IFlashcardsSliderProps {
   wordsList: IWord[];
-  isQuizMode: boolean;
+  hideTranslation: boolean;
+  hidePinyin: boolean;
 }
 
 const FlashcardsSlider: React.FC<IFlashcardsSliderProps> = ({
   wordsList,
-  isQuizMode,
+  hidePinyin,
+  hideTranslation,
 }) => {
   const [shownCard, _setShownCard] = useState(wordsList[0]);
   const shownCardRef = useRef(shownCard);
@@ -88,7 +90,7 @@ const FlashcardsSlider: React.FC<IFlashcardsSliderProps> = ({
 
         <span
           className={
-            isQuizMode
+            hidePinyin
               ? 'flashcards-slider__pinyin blur'
               : 'flashcards-slider__pinyin'
           }
@@ -98,7 +100,7 @@ const FlashcardsSlider: React.FC<IFlashcardsSliderProps> = ({
 
         <span
           className={
-            isQuizMode
+            hideTranslation
               ? 'flashcards-slider__translation blur'
               : 'flashcards-slider__translation'
           }
