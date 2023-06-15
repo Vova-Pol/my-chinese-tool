@@ -5,7 +5,7 @@ import { ChunksList } from '../../components/ChunksList/ChunksList';
 import { IChunk } from '../../models/models';
 
 export default function Video() {
-  const [startTime, setStartTime] = useState(convertTime('1:00'));
+  const [startTime, setStartTime] = useState(convertTime('1:41'));
   function handleChunkOnClick(chunk: IChunk) {
     setStartTime(convertTime(chunk.startTime));
   }
