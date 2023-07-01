@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ChunksList.css';
 import { useAppSelector } from '../../hooks/redux';
-import { IChunk } from '../../models/models';
+import { IChunk, IWord } from '../../models/models';
 
 interface IChunksListProps {
   handleOnChunk: (chunk: IChunk) => void;
