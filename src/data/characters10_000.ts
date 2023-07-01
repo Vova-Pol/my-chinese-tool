@@ -17,7 +17,7 @@ function filterAndSplit(stringOfCharacters: string): string[] {
     .split(',');
 }
 
-const char5_000 = filterAndSplit(characters0to5000);
+export const char5_000 = filterAndSplit(characters0to5000);
 const char5_000to10_000 = filterAndSplit(characters5000to10000);
 
 export const characters10_000: string[] = [...char5_000, ...char5_000to10_000];

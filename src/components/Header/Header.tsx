@@ -25,6 +25,9 @@ export default function Header() {
         <Link to="/scenario" className="header__link">
           Сценарий
         </Link>
+        <Link to="/5000char" className="header__link">
+          5000 слов
+        </Link>
       </nav>
     </header>
   );

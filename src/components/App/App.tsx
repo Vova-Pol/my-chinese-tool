@@ -9,6 +9,7 @@ import Chunks from '../../pages/Chunks/Chunks';
 import Flashcards from '../../pages/Flashcards/Flashcards';
 import Video from '../../pages/Video/Video';
 import { Scenario } from '../../pages/Scenario/Scenario';
+import { Slider5000 } from '../Slider5000/Slider5000';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/chunks/:id" element={<Flashcards />} />
           <Route path="/video" element={<Video />} />
           <Route path="/scenario" element={<Scenario />} />
+          <Route path="/5000char" element={<Slider5000 />} />
         </Routes>
       </main>
     </div>

@@ -1,0 +1,78 @@
+.slider-5000__counter {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.slider-5000__slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+  margin-bottom: 30px;
+}
+
+.slider-5000__arrow-button {
+  max-width: 50px;
+  max-height: 50px;
+  background-color: #d94730;
+  color: #e7ecef;
+}
+
+.slider-5000__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  background-color: #ffd65c;
+  color: #272932;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.slider-5000__chatacter {
+  font-size: 60px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.slider-5000__button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.slider-5000__button {
+  background-color: #d94730;
+  margin-right: 10px;
+  background-position: center;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.slider-5000__button:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.slider-5000__search-button {
+  background-image: url('../../images/search-icon.png');
+}
+
+.slider-5000__bkrs-button {
+  background-image: url('../../images/bkrs-icon.png');
+}
+
+.slider-5000__bookmark {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.slider-5000__bookmark_state_marked {
+  color: #272932;
+}

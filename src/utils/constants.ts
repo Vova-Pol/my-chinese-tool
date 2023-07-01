@@ -1,4 +1,5 @@
 export const LS_PROGRESS_KEY = 'words-chunks';
+export const LS_SLIDER_5000_BOOKMARK_KEY = '5000-bookmark';
 
 export const LINE_BREAK_AT_THE_END_REGEX = /\n$/;
 export const MORE_THAN_ONE_LINE_BREAK_REGEX = /\n{2,}/;
