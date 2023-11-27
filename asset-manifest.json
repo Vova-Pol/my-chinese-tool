@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/my-chinese-tool/static/css/main.27c3d1c6.css",
+    "main.js": "/my-chinese-tool/static/js/main.12db0b53.js",
+    "static/media/DFTanKai_Std_W5.ttf": "/my-chinese-tool/static/media/DFTanKai_Std_W5.4ce6839f369d1444b2df.ttf",
+    "static/media/Murecho-ExtraLight.ttf": "/my-chinese-tool/static/media/Murecho-ExtraLight.7180695c92040a456750.ttf",
+    "static/media/Murecho-Light.ttf": "/my-chinese-tool/static/media/Murecho-Light.3750b26a2058129065ae.ttf",
+    "static/media/Murecho-Regular.ttf": "/my-chinese-tool/static/media/Murecho-Regular.f29047a2e08384785d22.ttf",
+    "static/media/Murecho-Thin.ttf": "/my-chinese-tool/static/media/Murecho-Thin.7b87a69a1e9c69c31329.ttf",
+    "static/media/Murecho-Medium.ttf": "/my-chinese-tool/static/media/Murecho-Medium.34ddabe68182b5586028.ttf",
+    "static/media/Murecho-Bold.ttf": "/my-chinese-tool/static/media/Murecho-Bold.494b4c32a99c322f2597.ttf",
+    "static/media/Murecho-ExtraBold.ttf": "/my-chinese-tool/static/media/Murecho-ExtraBold.c9405876918f4539cfa7.ttf",
+    "static/media/bkrs-icon.png": "/my-chinese-tool/static/media/bkrs-icon.c863c0ae190668f7a2f4.png",
+    "index.html": "/my-chinese-tool/index.html",
+    "main.27c3d1c6.css.map": "/my-chinese-tool/static/css/main.27c3d1c6.css.map",
+    "main.12db0b53.js.map": "/my-chinese-tool/static/js/main.12db0b53.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27c3d1c6.css",
+    "static/js/main.12db0b53.js"
+  ]
+}
