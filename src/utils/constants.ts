@@ -23,3 +23,6 @@ export const BKRS_SEARCH_URL = 'https://bkrs.info/slovo.php?ch=';
 export const LEFT_ARROW_KEY_CODE = 37;
 export const RIGHT_ARROW_KEY_CODE = 39;
 export const SPACE_KEY_CODE = 32;
+
+export const GITHUB_AUTHOR_URL = 'https://github.com/Vova-Pol';
+export const GITHUB_PROJECT_URL = 'https://github.com/Vova-Pol/my-chinese-tool';

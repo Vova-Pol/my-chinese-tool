@@ -1,0 +1,36 @@
+.footer {
+  display: flex;
+  column-gap: 80px;
+  margin-top: 40px;
+  padding: 40px;
+  border-top: 0.5px solid #ffd65c84;
+}
+
+.footer__list-title {
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.footer__list-item {
+  display: flex;
+  align-items: center;
+  font-weight: 100;
+  margin-bottom: 7px;
+}
+.footer__list-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.footer__contacts-icon {
+  margin-right: 8px;
+}
+
+.footer__link {
+  transition: all 0.3s ease-in-out;
+}
+
+.footer__link:hover {
+  transform: translateX(2px);
+  filter: contrast(1.2);
+}

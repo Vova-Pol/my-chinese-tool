@@ -9,6 +9,7 @@ import Chunks from '../../pages/Chunks/Chunks';
 import Flashcards from '../../pages/Flashcards/Flashcards';
 import Video from '../../pages/Video/Video';
 import { Slider5000 } from '../Slider5000/Slider5000';
+import { Footer } from '../Footer/Footer';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/5000char" element={<Slider5000 />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
