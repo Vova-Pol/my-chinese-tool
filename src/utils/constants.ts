@@ -17,6 +17,7 @@ export const LESS_THAN_TWO_SLASHES_ERROR_TEXT =
 
 export const AIM_AMOUNT = 500;
 
+export const API_URL = 'http://localhost:8080';
 export const BKRS_SEARCH_URL = 'https://bkrs.info/slovo.php?ch=';
 
 export const LEFT_ARROW_KEY_CODE = 37;
