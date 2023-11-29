@@ -9,3 +9,20 @@
   border-radius: 10px;
   margin-bottom: 50px;
 }
+
+.video__suggest {
+  font-size: 27px;
+  font-weight: 400;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.video__suggest:hover {
+  opacity: 0.5;
+}
+
+.video__add-icon {
+  width: 20px;
+  height: 20px;
+}

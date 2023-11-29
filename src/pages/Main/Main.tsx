@@ -11,7 +11,7 @@ export default function Main() {
       <span className="main__subtitle">进了一步。</span>
       <Profile />
       <Progress />
-      <LastAdded />
+      {/* <LastAdded /> */}
     </div>
   );
 }

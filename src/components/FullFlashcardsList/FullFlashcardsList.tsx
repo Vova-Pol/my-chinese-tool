@@ -13,7 +13,7 @@ const FullFlashcardsList: React.FC<IFullFlashcardsListProps> = ({
   return (
     <ul className="flashcards-list">
       {wordsList.map((word) => (
-        <Flashcard key={word.id} {...word} />
+        <Flashcard key={word._id} {...word} />
       ))}
     </ul>
   );

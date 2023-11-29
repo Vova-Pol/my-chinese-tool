@@ -6,7 +6,7 @@ import { BKRS_SEARCH_URL } from '../../utils/constants';
 
 const Flashcard: React.FC<IWord> = ({
   character,
-  id,
+  _id,
   pinyin,
   translation,
   usage = null,

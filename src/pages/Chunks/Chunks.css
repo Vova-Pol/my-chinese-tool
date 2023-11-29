@@ -1,5 +1,23 @@
 .chunks {
+  text-align: center;
 }
 
 .chunks__title {
+}
+
+.chunks__suggest {
+  font-size: 27px;
+  font-weight: 400;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.chunks__suggest:hover {
+  opacity: 0.5;
+}
+
+.chunks__add-icon {
+  width: 20px;
+  height: 20px;
 }

@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Flashcards.css';
 import { useParams } from 'react-router-dom';
-import { useAppSelector } from '../../hooks/redux';
 import FullFlashcardsList from '../../components/FullFlashcardsList/FullFlashcardsList';
 import FlashcardsSlider from '../../components/FlashcardsSlider/FlashcardsSlider';
+import { api } from '../../utils/api';
+import { IChunk } from '../../models/models';
 
 export default function Flashcards() {
-  const { id } = useParams();
+  const { _id } = useParams();
 
-  const { wordsChunks } = useAppSelector((state) => state.progress);
-  const [wordsList, setWordsList] = useState(
-    wordsChunks.find((chunk) => chunk.id === Number(id)).wordsList,
-  );
+  const [wordsList, setWordsList] = useState([]);
+
+  useEffect(() => {
+    api
+      .getChunks()
+      .then((res) => {
+        const wordsList = res.data.find(
+          (chunk: IChunk) => chunk._id === Number(_id),
+        ).wordsList;
+        console.log(wordsList);
+        setWordsList(wordsList);
+      })
+      .catch((err) => {
+        console.error('Ошибка при запросе на сервер');
+        console.error({ err });
+      });
+  }, [_id]);
 
   const [isFullListShown, setIsFullListShown] = useState(false);
   const [hideTranslation, setHideTranslation] = useState(false);

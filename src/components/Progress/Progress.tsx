@@ -1,12 +1,12 @@
 import React from 'react';
 import './Progress.css';
 import { AIM_AMOUNT } from '../../utils/constants';
-import { useAppSelector } from '../../hooks/redux';
 
 export default function Progress() {
-  const { wordsChunks } = useAppSelector((state) => state.progress);
+  // const { wordsChunks } = useAppSelector((state) => state.progress);
+  const wordsChunks: any = [];
 
-  const totalProgress = wordsChunks.reduce((acc, chunk) => {
+  const totalProgress = wordsChunks.reduce((acc: any, chunk: any) => {
     return acc + chunk.wordsList.length;
   }, 0);
 

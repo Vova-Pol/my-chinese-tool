@@ -21,7 +21,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/search/:character" element={<Search />} />
           <Route path="/chunks" element={<Chunks />} />
-          <Route path="/chunks/:id" element={<Flashcards />} />
+          <Route path="/chunks/:_id" element={<Flashcards />} />
           <Route path="/video" element={<Video />} />
           <Route path="/5000char" element={<Slider5000 />} />
         </Routes>

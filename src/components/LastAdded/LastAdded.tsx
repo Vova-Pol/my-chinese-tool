@@ -1,9 +1,10 @@
-import { useAppSelector } from '../../hooks/redux';
+// import { useAppSelector } from '../../hooks/redux';
 import FullFlashcardsList from '../FullFlashcardsList/FullFlashcardsList';
 import './LastAdded.css';
 
 export const LastAdded = () => {
-  const { wordsChunks } = useAppSelector((state) => state.progress);
+  // const { wordsChunks } = useAppSelector((state) => state.progress);
+  const wordsChunks: any = [];
   const lastAdded = wordsChunks[wordsChunks.length - 1].wordsList;
 
   return (
