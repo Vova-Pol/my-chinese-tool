@@ -1,4 +1,9 @@
-import { IChunk, IWord } from '../models/models';
+import {
+  IWord,
+  IChunk,
+  ISaveChunkValues,
+  ISaveWordValues,
+} from '../models/models';
 import {
   LESS_THAN_TWO_SLASHES_ERROR_TEXT,
   LESS_THAN_TWO_SLASHES_REGEX,
@@ -12,18 +17,18 @@ import {
 
 // Функция преобразует строку в массив обектов IWord
 
-export function createWordData(wordsString: string): IWord[] {
+export function createWordsData(wordsString: string): ISaveWordValues[] {
   const stringsArray = wordsString.split('\n');
+
   const wordsList = stringsArray.map((str, i) => {
     // преобразуем каждую строку 我/wǒ/я/我在家 в массив ['我', 'wǒ', 'я', '我在家']
     const wordPropertiesArr = str.split('/');
 
     // создаем объект
-    const wordData: IWord = {
+    const wordData: ISaveWordValues = {
       character: wordPropertiesArr[0].trim(),
       pinyin: wordPropertiesArr[1].trim(),
       translation: wordPropertiesArr[2].trim(),
-      id: Date.now() + i,
     };
 
     // если есть последнее поле (необязательное) usage, добавляем
@@ -34,8 +39,11 @@ export function createWordData(wordsString: string): IWord[] {
   return wordsList;
 }
 
-export function createChunkData(wordsList: IWord[], startTime: string): IChunk {
-  return { wordsList, startTime: startTime.trim(), id: Date.now() };
+export function createWordsListData(
+  wordsList: ISaveWordValues[],
+  startTime: string,
+): ISaveChunkValues {
+  return { wordsList, startTime: startTime.trim() };
 }
 
 // Преобразовать время из string в number (кол-во секунд). "1:41" -> 101
