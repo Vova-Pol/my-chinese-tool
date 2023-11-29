@@ -21,6 +21,9 @@ app.get('/chunks', (req, res) => {
 app.post('/chunks', (req, res) => {
   const newChunk = req.body;
   newChunk._id = Date.now();
+  newChunk.wordsList.forEach((word, i) => {
+    word._id = Date.now() + i;
+  });
   chunks.push(newChunk);
   res.send(newChunk);
 });

@@ -18,7 +18,6 @@ export default function Flashcards() {
         const wordsList = res.data.find(
           (chunk: IChunk) => chunk._id === Number(_id),
         ).wordsList;
-        console.log(wordsList);
         setWordsList(wordsList);
       })
       .catch((err) => {
@@ -42,6 +41,8 @@ export default function Flashcards() {
   function handleHidePinyin() {
     setHidePinyin(!hidePinyin);
   }
+
+  if (wordsList.length === 0) return <p>Список пуст</p>;
 
   return (
     <div className="flashcards">
