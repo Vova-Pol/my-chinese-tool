@@ -29,6 +29,7 @@ export function createWordsData(wordsString: string): ISaveWordValues[] {
       character: wordPropertiesArr[0].trim(),
       pinyin: wordPropertiesArr[1].trim(),
       translation: wordPropertiesArr[2].trim(),
+      _id: String(Date.now() + i),
     };
 
     // если есть последнее поле (необязательное) usage, добавляем

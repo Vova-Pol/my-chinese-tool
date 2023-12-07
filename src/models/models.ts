@@ -3,13 +3,13 @@ export interface IWord {
   pinyin: string;
   translation: string;
   usage?: string;
-  _id: number;
+  _id: string;
 }
 
 export interface IChunk {
   wordsList: IWord[];
   startTime: string;
-  _id: number;
+  _id: string;
 }
 
 export interface ISearchedWord {
@@ -27,4 +27,5 @@ export interface ISaveWordValues {
   pinyin: string;
   translation: string;
   usage?: string;
+  _id: string;
 }
