@@ -18,6 +18,10 @@ class Api {
   getChunks() {
     return this.apiClient.get('/chunks');
   }
+
+  getChunkById(id: string) {
+    return this.apiClient.get(`/chunks/${id}`);
+  }
 }
 
 export const api = new Api(API_URL);
