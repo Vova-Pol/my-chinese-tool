@@ -5,10 +5,12 @@ import { IChunk } from '../../models/models';
 import { useState, useEffect } from 'react';
 import { api } from '../../utils/api';
 import { FiPlusCircle } from 'react-icons/fi';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 export default function Chunks() {
   const navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState(true);
   const [chunks, setChunks] = useState<IChunk[]>([]);
 
   useEffect(() => {
@@ -16,8 +18,13 @@ export default function Chunks() {
       .getChunks()
       .then((res) => {
         if (res.data) setChunks(res.data);
+        setIsLoading(false);
       })
       .catch((err) => {
+        setIsLoading(false);
+
+        // Дебаг
+        console.error('Ошибка при запросе на сервер');
         console.error({ err });
       });
   }, []);
@@ -29,7 +36,9 @@ export default function Chunks() {
   return (
     <div className="chunks">
       <h1 className="chunks__title">Эпизоды</h1>
-      {chunks.length === 0 ? (
+      {isLoading ? (
+        <AiOutlineLoading3Quarters className="chunks__loading" />
+      ) : chunks.length === 0 ? (
         <Link to="/add-words" className="chunks__suggest">
           <FiPlusCircle className="chunks__add-icon" /> Добавить список слов
         </Link>

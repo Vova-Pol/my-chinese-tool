@@ -21,3 +21,10 @@
   width: 20px;
   height: 20px;
 }
+
+.chunks__loading {
+  width: 30px;
+  height: 30px;
+  color: #fed75b;
+  animation: rotating 1s linear infinite;
+}
