@@ -3,6 +3,7 @@ import { FaWhatsapp, FaTelegram, FaReact } from 'react-icons/fa';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import { SiTypescript, SiExpress, SiMongodb } from 'react-icons/si';
 import { FaGithub } from 'react-icons/fa';
+import { TbServer2 } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import { GITHUB_AUTHOR_URL, GITHUB_PROJECT_URL } from '../../utils/constants';
 
@@ -39,12 +40,8 @@ export const Footer = () => {
             TypeScript
           </li>
           <li className="footer__list-item">
-            <SiExpress className="footer__contacts-icon" />
-            Express.js
-          </li>
-          <li className="footer__list-item">
-            <SiMongodb className="footer__contacts-icon" />
-            MongoDB
+            <TbServer2 className="footer__contacts-icon" />
+            Mock Api
           </li>
         </ul>
       </div>
