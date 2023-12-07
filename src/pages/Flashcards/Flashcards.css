@@ -45,3 +45,10 @@
   color: #fed75b;
   animation: rotating 1s linear infinite;
 }
+
+.flashcards__error {
+  display: block;
+  text-align: center;
+  min-height: 310px;
+  color: #f05d5e;
+}

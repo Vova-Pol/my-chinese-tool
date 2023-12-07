@@ -28,3 +28,7 @@
   color: #fed75b;
   animation: rotating 1s linear infinite;
 }
+
+.chunks__error {
+  color: #f05d5e;
+}

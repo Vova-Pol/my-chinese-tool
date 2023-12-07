@@ -6,28 +6,11 @@ import FlashcardsSlider from '../../components/FlashcardsSlider/FlashcardsSlider
 import { api } from '../../utils/api';
 import { IChunk } from '../../models/models';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { useGetChunkById } from '../../hooks/useGetChunkById';
 
 export default function Flashcards() {
   const { _id } = useParams();
-
-  const [wordsList, setWordsList] = useState([]);
-
-  useEffect(() => {
-    api
-      .getChunks()
-      .then((res) => {
-        const wordsList = res.data.find(
-          (chunk: IChunk) => chunk._id === _id,
-        ).wordsList;
-
-        setWordsList(wordsList);
-      })
-      .catch((err) => {
-        // Дебаг
-        console.error('Ошибка при запросе на сервер');
-        console.error({ err });
-      });
-  }, [_id]);
+  const { isLoading, isError, wordsList } = useGetChunkById(_id || '');
 
   const [isFullListShown, setIsFullListShown] = useState(false);
   const [hideTranslation, setHideTranslation] = useState(false);
@@ -45,14 +28,16 @@ export default function Flashcards() {
     setHidePinyin(!hidePinyin);
   }
 
-  //  if (wordsList.length === 0) return <p>Список пуст</p>;
-
   return (
     <div className="flashcards">
       <h1 className="flashcards__title">Карточки</h1>
 
-      {wordsList.length === 0 ? (
+      {isLoading ? (
         <AiOutlineLoading3Quarters className="flashcards__loading" />
+      ) : wordsList.length == 0 ? (
+        <span className="flashcards__error">Список пуст</span>
+      ) : isError ? (
+        <span className="flashcards__error">Ошибка на сервере</span>
       ) : (
         <FlashcardsSlider
           wordsList={wordsList}
