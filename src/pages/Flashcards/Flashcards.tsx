@@ -5,6 +5,7 @@ import FullFlashcardsList from '../../components/FullFlashcardsList/FullFlashcar
 import FlashcardsSlider from '../../components/FlashcardsSlider/FlashcardsSlider';
 import { api } from '../../utils/api';
 import { IChunk } from '../../models/models';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 export default function Flashcards() {
   const { _id } = useParams();
@@ -16,11 +17,13 @@ export default function Flashcards() {
       .getChunks()
       .then((res) => {
         const wordsList = res.data.find(
-          (chunk: IChunk) => chunk._id === Number(_id),
+          (chunk: IChunk) => chunk._id === _id,
         ).wordsList;
+
         setWordsList(wordsList);
       })
       .catch((err) => {
+        // Дебаг
         console.error('Ошибка при запросе на сервер');
         console.error({ err });
       });
@@ -42,17 +45,21 @@ export default function Flashcards() {
     setHidePinyin(!hidePinyin);
   }
 
-  if (wordsList.length === 0) return <p>Список пуст</p>;
+  //  if (wordsList.length === 0) return <p>Список пуст</p>;
 
   return (
     <div className="flashcards">
       <h1 className="flashcards__title">Карточки</h1>
 
-      <FlashcardsSlider
-        wordsList={wordsList}
-        hidePinyin={hidePinyin}
-        hideTranslation={hideTranslation}
-      />
+      {wordsList.length === 0 ? (
+        <AiOutlineLoading3Quarters className="flashcards__loading" />
+      ) : (
+        <FlashcardsSlider
+          wordsList={wordsList}
+          hidePinyin={hidePinyin}
+          hideTranslation={hideTranslation}
+        />
+      )}
 
       <div className="flashcards__quiz-mode-container">
         <label className="flashcards__quiz-mode" htmlFor="hide-translation">
