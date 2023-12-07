@@ -3,12 +3,12 @@ import './AddWords.css';
 import { createWordsData, createWordsListData } from '../../utils/utils';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { api } from '../../utils/api';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 export default function AddWords() {
-  const initialValues = {
-    words: '',
-    startTime: '',
-  };
+  const [isLoading, setIsLoading] = useState(false);
+  const [successText, setSuccessText] = useState('');
+  const [errorText, setErrorText] = useState('');
 
   const {
     values,
@@ -18,7 +18,10 @@ export default function AddWords() {
     handleInputChange,
     handleTextAreaChange,
     resetForm,
-  } = useFormAndValidation(initialValues);
+  } = useFormAndValidation({
+    words: '',
+    startTime: '',
+  });
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -29,15 +32,25 @@ export default function AddWords() {
 
   function handleSubmit(evt: React.MouseEvent<HTMLButtonElement>) {
     evt.preventDefault();
+
+    setErrorText('');
+    setSuccessText('');
+    setIsLoading(true);
+
     const wordsList = createWordsData(values.words);
     const chunkData = createWordsListData(wordsList, values.startTime);
 
     api
       .postChunk(chunkData)
       .then((res) => {
+        setIsLoading(false);
+        setSuccessText('Список слов добавлен');
         resetForm();
       })
       .catch((err) => {
+        setIsLoading(false);
+        setErrorText('Ошибка. Поробуйте еще раз');
+        // Дебаг
         console.error('Ошибка при запросе на сервер');
         console.error({ err });
       });
@@ -79,9 +92,22 @@ export default function AddWords() {
           onClick={handleSubmit}
           disabled={isInputValid && isTextAreaValid ? false : true}
         >
-          Добавить
+          {isLoading ? (
+            <AiOutlineLoading3Quarters className="add-words__loading" />
+          ) : (
+            'Добавить'
+          )}
         </button>
       </form>
+      <span
+        className={
+          errorText
+            ? 'add-words__result_type_error'
+            : 'add-words__result_type_success'
+        }
+      >
+        {errorText ? errorText : successText}
+      </span>
     </div>
   );
 }
